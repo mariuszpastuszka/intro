@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+
+    <meta charset="UTF-8">
+    <title>Kalkulator</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+<div class="container">
+    <form action="/calc" method="get" class="form-signin">
+        <input autofocus class="form-control" type="text" name="input"></br>
+        <button class="btn btn-lg btn-primary btn-block" title="Oblicz">Oblicz</button>
+    </form>
+    <h1 style="margin: auto" class="text-center" th:utext=" ${result}">Twój wynik:</h1>
+    </br>
+    <ul th:each="historyElement : ${history}" class="list-group cal-hist-item">
+        <li th:text="${historyElement}" th:classappend="${historyElementStat.odd}? 'odd'"
+            class="collapse list-group-item">First item
+        </li>
+    </ul>
+</div>
+</body>
+</html>
